@@ -3392,7 +3392,7 @@
                 "bamarni/composer-bin-plugin": "^1.2"
             },
             "suggest": {
-                "ext-pcntl": "Enabling the PCNTL extension makes PsySH a lot happier :)",
+                "ext-pcntl": "Enabling the PCNTL extension car_names PsySH a lot happier :)",
                 "ext-pdo-sqlite": "The doc command requires SQLite to work.",
                 "ext-posix": "If you have PCNTL, you'll want the POSIX extension as well."
             },

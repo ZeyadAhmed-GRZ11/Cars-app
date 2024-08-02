@@ -4,43 +4,26 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Car;
+use Livewire\WithPagination;
 
-
-class CarsList extends Component
+class CarSearch extends Component
 {
+    use WithPagination;
 
     public $all_cars;
     public $car_name;
     public $capacity;
     public $brand;
-    public $fuel_type;
-
-
-    // public $car_id;
 
     protected $queryString = [
         'car_name' => ['except' => ''],
         'capacity' => ['except' => ''],
         'brand' => ['except' => ''],
-        'fuel_type' => ['except' => ''],
     ];
 
     public function updating($name, $value)
     {
         $this->resetPage();
-    }
-
-    public function search(){
-        $this->resetPage();
-        $this->updateQueryString();
-    }
-
-    public function updateQueryString(){
-        $this->resetPage();
-    }
-
-    public function resetPage(){
-        $this->currentPage = 1;
     }
 
     public function render()
@@ -58,18 +41,14 @@ class CarsList extends Component
         if ($this->brand) {
             $query->where('brand', $this->brand);
         }
-        if ($this->fuel_type) {
-            $query->where('fuel_type', $this->fuel_type);
-        }
 
-        $cars = $query->paginate(10);
-   
-        return view('livewire.cars-list',[
-           'cars' => $cars,
+        $cars = $query->paginate(3);
+
+        return view('livewire.car-search', [
+            'cars' => $cars,
         ]);
-
     }
-    
+
     public function mount(){
         $this->all_cars = Car::all();
     }
@@ -77,11 +56,20 @@ class CarsList extends Component
     public function delete($id){
         try{
             Car::where('id', $id)->delete();
-            return $this->redirect('/cars/list',navigate:true);
+            return redirect('/cars/list');
         }catch(\Exception $th){
             dd($th);
-         }
+        }
     }
 
-   
+    public function search(){
+        $this->resetPage();
+        $this->updateQueryString();
+    }
+
+    public function updateQueryString(){
+        $this->resetPage();
+    }
+
 }
+

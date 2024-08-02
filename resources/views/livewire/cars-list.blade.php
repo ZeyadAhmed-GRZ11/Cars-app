@@ -10,7 +10,20 @@
                     <a href="/add/new" wire:navigate  class="btn btn-success btn-sm float-end">Add New Car</a>
                 </div>
             </div>
-            
+
+            <div class="row md-3 p-2">
+
+             <form class="d-flex" wire:submit.prevent="search">
+                <form class="d-flex" role="search">
+                  <input wire:model="car_name" wire:model="brand" class="form-control me-2" type="search" placeholder="Search ..." aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit" style="margin: around 30px;">Search</button>
+                </form>
+             </form>
+             
+         
+            </div>
+
+
         </div>
         <div class="card-body">
            
@@ -52,6 +65,9 @@
           <h2 x-text="count"></h2>
           <button x-on:click="count++">+</button>
         </div> -->
+      
+        {{--  {{ $cars->links() }} --}} 
+      
 
         </div>
     </div>

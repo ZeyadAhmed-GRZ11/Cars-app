@@ -1,0 +1,14 @@
+
+in this Full-Stack Web Application:
+
+I used 
+
+1-PHP-Laravel.11
+2-MySQL DB
+3-Livewire Library
+4-JetStream -> for Auth
+5-Tailwind.Css for styling
+
+
+
+

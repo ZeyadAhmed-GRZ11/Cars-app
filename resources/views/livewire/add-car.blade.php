@@ -55,7 +55,7 @@
                   </select>
                   @error('fuel_type')
                        <span class="text-danger">{{$message}}</span>
-                   @enderror
+                  @enderror
               </div>
 
               <button type:submit class="btn btn-success">Save</button>

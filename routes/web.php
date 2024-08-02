@@ -6,6 +6,9 @@ use App\Livewire\Testpage;
 use App\Livewire\CarsList;
 use App\Livewire\AddCar;
 use App\Livewire\EditCar;
+use App\Livewire\CarSearch;
+
+
 
 
 
@@ -13,10 +16,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test/page', Testpage::class);
+Route::get('/test/page', TestPage::class);
+Route::get('/search/engine', CarSearch::class);
 Route::get('/cars/list', CarsList::class);
 Route::get('/add/new', AddCar::class);
 Route::get('/edit/car/{id}', EditCar::class);
+
+
+
 
 
 Route::middleware([
